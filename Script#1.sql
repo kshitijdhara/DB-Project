@@ -59,10 +59,13 @@ CREATE TABLE Employee (
     Dept_ID INT NOT NULL,
     Sup_ID INT,
     -- FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID), -- Can add this as a constraint later
-    CONSTRAINT supervisor_fk FOREIGN KEY (Sup_ID) REFERENCES Employee(Emp_ID), --ON DELETE to be added
+    CONSTRAINT supervisor_fk FOREIGN KEY (Sup_ID) REFERENCES Employee(Emp_ID),
+    --ON DELETE to be added
     CONSTRAINT chck_positive_emp_id CHECK (EMP_ID > 0),
     CONSTRAINT chck_dob CHECK (MONTHS_BETWEEN(SYSDATE, DOB) / 12 >= 18) -- ask TA how to do this 
-);--
+);
+
+--
 -- Create Department table
 CREATE TABLE Department (
     Dept_ID INT PRIMARY KEY,
@@ -84,11 +87,16 @@ CREATE TABLE Training (
     Sem_Cmpltd VARCHAR(20),
     Emp_ID INT,
     ApprovedBy INT,
-    FOREIGN KEY (Emp_ID) REFERENCES Employee(Emp_ID),
-    FOREIGN Key (ApprovedBy) REFERENCES Employee(Emp_ID)
+    CONSTRAINT emp_id_fk FOREIGN KEY (Emp_ID) REFERENCES Employee(Emp_ID),
+    CONSTRAINT approved_by_fk FOREIGN Key (ApprovedBy) REFERENCES Employee(Emp_ID)
 );
 
 ALTER TABLE
     Employee
 ADD
-    CONSTRAINT DEPT_ID_FK FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID)
+    CONSTRAINT DEPT_ID_FK FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID);
+
+ALTER TABLE
+    Class
+ADD
+    CONSTRAINT CLASS_PK PRIMARY KEY (Crs_ID, Section, Sem_Cmpltd);
