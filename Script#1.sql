@@ -59,7 +59,7 @@ CREATE TABLE Employee (
     Dept_ID INT NOT NULL,
     Sup_ID INT,
     -- FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID), -- Can add this as a constraint later
-    FOREIGN KEY (Sup_ID) REFERENCES Employee(Emp_ID), --ON DELETE to be added
+    CONSTRAINT supervisor_fk FOREIGN KEY (Sup_ID) REFERENCES Employee(Emp_ID), --ON DELETE to be added
     CONSTRAINT chck_positive_emp_id CHECK (EMP_ID > 0),
     CONSTRAINT chck_dob CHECK (MONTHS_BETWEEN(SYSDATE, DOB) / 12 >= 18) -- ask TA how to do this 
 );--
@@ -70,7 +70,7 @@ CREATE TABLE Department (
     Dept_Mngr INT,
     Phone INT,
     Training_Budget NUMBER(20, 2) NOT NULL,
-    FOREIGN KEY (Dept_Mngr) REFERENCES Employee(Emp_ID)
+    CONSTRAINT manager_fk FOREIGN KEY (Dept_Mngr) REFERENCES Employee(Emp_ID)
 );
 
 -- Create Training Table
