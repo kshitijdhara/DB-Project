@@ -19,32 +19,32 @@ INSERT INTO Employee (
     Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
 )
 VALUES
-    (101, 'John', 'Doe', 'john.doe@email.com', 'Manager', TO_DATE('1990-01-15', 'YYYY-MM-DD'), 5000.00, '123 Main St', 'Pittsburgh', 'Pennysilvania', '15217', 1, NULL),
-    (102, 'Jane', 'Smith', 'jane.smith@email.com', 'Developer', TO_DATE('1985-05-20', 'YYYY-MM-DD'), 4500.00, '456 Oak St', 'CityB', 'StateB', '67890', 1, 101),
-    (103, 'Mike', 'Johnson', 'mike.johnson@email.com', 'HR Specialist', TO_DATE('1988-08-10', 'YYYY-MM-DD'), 4800.00, '789 Pine St', 'CityC', 'StateC', '54321', 2, 101),
-    (104, 'Emily', 'Brown', 'emily.brown@email.com', 'Sales Representative', TO_DATE('1992-03-25', 'YYYY-MM-DD'), 4300.00, '101 Cedar St', 'CityD', 'StateD', '98765', 5, 105),
-    (105, 'Alex', 'Miller', 'alex.miller@email.com', 'Customer Support', TO_DATE('1993-12-05', 'YYYY-MM-DD'), 4200.00, '202 Elm St', 'CityE', 'StateE', '45678', 7, 107),
-    (106, 'Chris', 'Wong', 'chris.wong@email.com', 'Research Analyst', TO_DATE('1991-06-15', 'YYYY-MM-DD'), 4900.00, '303 Maple St', 'CityF', 'StateF', '23456', 6, 106),
-    (107, 'Sophia', 'Clark', 'sophia.clark@email.com', 'Quality Assurance', TO_DATE('1989-09-30', 'YYYY-MM-DD'), 4700.00, '404 Birch St', 'CityG', 'StateG', '87654', 9, 109),
-    (108, 'David', 'White', 'david.white@email.com', 'Production Manager', TO_DATE('1987-04-12', 'YYYY-MM-DD'), 5200.00, '505 Oak St', 'CityH', 'StateH', '54321', 8, 108),
-    (109, 'Olivia', 'Taylor', 'olivia.taylor@email.com', 'Administrator', TO_DATE('1995-02-08', 'YYYY-MM-DD'), 4000.00, '606 Pine St', 'CityI', 'StateI', '78901', 10, 110),
-    (110, 'Daniel', 'Lee', 'daniel.lee@email.com', 'IT Specialist', TO_DATE('1994-11-18', 'YYYY-MM-DD'), 4800.00, '707 Cedar St', 'CityJ', 'StateJ', '12345', 1, 101);
+    (101, 'John', 'Doe', 'john.doe@andrew.cmu.edu', 'Manager', TO_DATE('1990-01-15', 'YYYY-MM-DD'), 5000.00, '123 Main St', 'Pittsburgh', 'Pennsylvania', '15217', 1, NULL),
+    (102, 'Jane', 'Smith', 'jane.smith@andrew.cmu.edu', 'Developer', TO_DATE('1985-05-20', 'YYYY-MM-DD'), 4500.00, '456 Oak St', 'Pittsburgh', 'Pennsylvania', '67890', 1, 101),
+    (103, 'Mike', 'Johnson', 'mike.johnson@andrew.cmu.edu', 'HR Specialist', TO_DATE('1988-08-10', 'YYYY-MM-DD'), 4800.00, '789 Pine St', 'Pittsburgh', 'Pennsylvania', '54321', 2, 101),
+    (104, 'Emily', 'Brown', 'emily.brown@andrew.cmu.edu', 'Sales Representative', TO_DATE('1992-03-25', 'YYYY-MM-DD'), 4300.00, '101 Cedar St', 'Pittsburgh', 'Pennsylvania', '98765', 5, 105),
+    (105, 'Alex', 'Miller', 'alex.miller@andrew.cmu.edu', 'Customer Support', TO_DATE('1993-12-05', 'YYYY-MM-DD'), 4200.00, '202 Elm St', 'Pittsburgh', 'Pennsylvania', '45678', 7, 107),
+    (106, 'Chris', 'Wong', 'chris.wong@andrew.cmu.edu', 'Research Analyst', TO_DATE('1991-06-15', 'YYYY-MM-DD'), 4900.00, '303 Maple St', 'Pittsburgh', 'Pennsylvania', '23456', 6, 106),
+    (107, 'Sophia', 'Clark', 'sophia.clark@andrew.cmu.edu', 'Quality Assurance', TO_DATE('1989-09-30', 'YYYY-MM-DD'), 4700.00, '404 Birch St', 'Pittsburgh', 'Pennsylvania', '87654', 9, 109),
+    (108, 'David', 'White', 'david.white@andrew.cmu.edu', 'Production Manager', TO_DATE('1987-04-12', 'YYYY-MM-DD'), 5200.00, '505 Oak St', 'Pittsburgh', 'Pennsylvania', '54321', 8, 108),
+    (109, 'Olivia', 'Taylor', 'olivia.taylor@andrew.cmu.edu', 'Administrator', TO_DATE('1995-02-08', 'YYYY-MM-DD'), 4000.00, '606 Pine St', 'Pittsburgh', 'Pennsylvania', '78901', 10, 110),
+    (110, 'Daniel', 'Lee', 'daniel.lee@andrew.cmu.edu', 'IT Specialist', TO_DATE('1994-11-18', 'YYYY-MM-DD'), 4800.00, '707 Cedar St', 'Pittsburgh', 'Pennsylvania', '12345', 1, 101);
 
 -- Insert data into Course table
 INSERT INTO Course (
     Crs_ID, Crs_Title, Crs_Type, College_Name, Tuition
 )
 VALUES
-    ('CS101', 'Introduction to Computer Science', 'Computer Science', 'ABC College', 1500.00),
-    ('ENG201', 'Advanced English Composition', 'English', 'XYZ University', 1200.00),
-    ('MATH301', 'Calculus I', 'Mathematics', '123 Institute', 1800.00),
-    ('HIST101', 'World History', 'History', 'DEF College', 1000.00),
-    ('PHYS202', 'Physics II', 'Physics', '456 University', 2000.00),
-    ('CHEM101', 'Introduction to Chemistry', 'Chemistry', 'LMN Institute', 1600.00),
-    ('PSYC301', 'Abnormal Psychology', 'Psychology', '789 College', 1400.00),
-    ('ART202', 'Art History', 'Art', 'GHI University', 1100.00),
-    ('SOC101', 'Introduction to Sociology', 'Sociology', 'JKL Institute', 1300.00),
-    ('BUS401', 'Strategic Management', 'Business', 'MNO College', 1700.00);
+    ('CS101', 'Introduction to Computer Science', 'Computer Science', 'School of Compueter Science', 1500.00),
+    ('ENG201', 'Advanced English Composition', 'English', 'College of Fine Arts', 1200.00),
+    ('MATH301', 'Calculus I', 'Mathematics', 'Mellon College of Science', 1800.00),
+    ('HIST101', 'World History', 'History', 'Dietrich College of Humanities & Social Sciences', 1000.00),
+    ('PHYS202', 'Physics II', 'Physics', 'Mellon College of Science', 2000.00),
+    ('CHEM101', 'Introduction to Chemistry', 'Chemistry', 'College of Engineering', 1600.00),
+    ('PSYC301', 'Abnormal Psychology', 'Psychology', 'Dietrich College of Humanities & Social Sciences', 1400.00),
+    ('ART202', 'Art History', 'Art', 'Dietrich College of Humanities & Social Sciences', 1100.00),
+    ('SOC101', 'Introduction to Sociology', 'Sociology', 'Dietrich College of Humanities & Social Sciences', 1300.00),
+    ('BUS401', 'Strategic Management', 'Business', 'Heinz College', 1700.00);
 
 -- Insert data into Class table
 INSERT INTO Class (
@@ -67,16 +67,16 @@ INSERT INTO Instructor (
     Instr_ID, Fname, Lname, Phone, Speciality
 )
 VALUES
-    (1, 'John', 'Smith', 1234567890, 'Computer Science'),
-    (2, 'Jane', 'Doe', 9876543210, 'English Literature'),
-    (3, 'Mike', 'Johnson', 5555555555, 'Mathematics'),
-    (4, 'Emily', 'Brown', 3333333333, 'History'),
-    (5, 'Alex', 'Miller', 4444444444, 'Physics'),
-    (6, 'Chris', 'Wong', 6666666666, 'Chemistry'),
-    (7, 'Sophia', 'Clark', 7777777777, 'Psychology'),
-    (8, 'David', 'White', 8888888888, 'Art History'),
-    (9, 'Olivia', 'Taylor', 9999999999, 'Sociology'),
-    (10, 'Daniel', 'Lee', 1111111111, 'Business Administration');
+    ('CS001', 'Michael', 'Johnson', 4155551234, 'Computer Science'),
+    ('ENG002', 'Laura', 'Anderson', 4085555678, 'English Literature'),
+    ('MTH003', 'Christopher', 'Martin', 5105558765, 'Mathematics'),
+    ('HST004', 'Elena', 'Rodriguez', 9255554321, 'History'),
+    ('PHY005', 'Robert', 'Garcia', 6505559876, 'Physics'),
+    ('CHM006', 'Megan', 'Baker', 4155556543, 'Chemistry'),
+    ('PSY007', 'Jonathan', 'Clark', 4085557890, 'Psychology'),
+    ('ART008', 'Amelia', 'Evans', 5105558765, 'Art History'),
+    ('SOC009', 'Gregory', 'Wong', 9255552345, 'Sociology'),
+    ('BUS010', 'Sophie', 'Fisher', 6505557890, 'Business Management');
 
 -- Insert data into Training table
 INSERT INTO Training (
