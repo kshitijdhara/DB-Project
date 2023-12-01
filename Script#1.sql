@@ -31,7 +31,7 @@ CREATE TABLE Class (
     Sem_Cmpltd VARCHAR(20),
     Day DATE,
     Time TIMESTAMP,
-    Instr_ID VARCHAR(8),
+    Instr_ID VARCHAR(8)
 );
 
 -- Create Instructor Table
