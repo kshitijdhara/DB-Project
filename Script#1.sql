@@ -26,7 +26,7 @@ CREATE TABLE Instructor (
 
 -- Create Course table
 CREATE TABLE Course (
-    Crs_ID VARCHAR(6) CONSTRAINT Course_Crs_ID_PK PRIMARY KEY,
+    Crs_ID VARCHAR(7) CONSTRAINT Course_Crs_ID_PK PRIMARY KEY,
     Crs_Title VARCHAR(255) CONSTRAINT Course_Crs_Title_NN NOT NULL,
     Crs_Type VARCHAR(50),
     College_Name VARCHAR(255),
@@ -35,7 +35,7 @@ CREATE TABLE Course (
 
 -- Create Class Table
 CREATE TABLE Class (
-    Crs_ID VARCHAR(6),
+    Crs_ID VARCHAR(7),
     Section VARCHAR(2),
     Sem_Cmpltd VARCHAR(10),
     Day DATE,
