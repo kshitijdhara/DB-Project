@@ -59,7 +59,7 @@ CREATE TABLE Employee (
     Allowance DECIMAL(10, 2),
     Street VARCHAR(255),
     City VARCHAR(255),
-    State VARCHAR(2),
+    State VARCHAR(20),
     Zip_Code VARCHAR(10),
     Dept_ID INT,
     Sup_ID INT,
