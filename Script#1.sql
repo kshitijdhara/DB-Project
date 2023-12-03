@@ -93,5 +93,7 @@ CREATE TABLE Department (
     CONSTRAINT Department_Dept_Mngr_FK FOREIGN KEY (Dept_Mngr) REFERENCES EMPLOYEE(Emp_ID)
 );
 
+
 ALTER TABLE Employee 
 ADD CONSTRAINT Employee_Dept_ID_FK FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID);
+
