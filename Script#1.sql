@@ -1,10 +1,9 @@
-
 -- Drop existing tables (if any, to be dropped in this order)
 DROP TABLE Training;
 
 -- Drop interdependent constraints
 ALTER TABLE
-Employee DROP CONSTRAINT Employee_Dept_ID_FK;
+    Employee DROP CONSTRAINT Employee_Dept_ID_FK;
 
 DROP TABLE Class;
 
@@ -35,13 +34,16 @@ CREATE TABLE Course (
 );
 
 -- Create Class Table
- CREATE TABLE Class (
+CREATE TABLE Class (
     Crs_ID VARCHAR(6),
     Section VARCHAR(2),
     Sem_Cmpltd VARCHAR(10),
     Day DATE,
-    Time TIMESTAMP CONSTRAINT Class_Time_CK CHECK (Time BETWEEN '00:00:00' AND '23:59:59'),
-    Instr_ID INT,
+    Time TIMESTAMP CONSTRAINT Class_Time_CK CHECK (
+        Time BETWEEN '00:00:00'
+        AND '23:59:59'
+    ),
+    Instr_ID VARCHAR(10),
     CONSTRAINT Class_Crs_ID_Section_Sem_Compltd_PK PRIMARY KEY (Crs_ID, Section, Sem_Cmpltd),
     CONSTRAINT Class_Crs_ID_FK FOREIGN KEY (Crs_ID) REFERENCES Course(Crs_ID),
     CONSTRAINT Class_Instr_ID_FK FOREIGN KEY (Instr_ID) REFERENCES Instructor(Instr_ID)
@@ -66,13 +68,15 @@ CREATE TABLE Employee (
     CONSTRAINT Employee_Emp_ID_FK FOREIGN KEY (Sup_ID) REFERENCES Employee(Emp_ID)
 );
 
---
 -- Create Training table
 CREATE TABLE Training (
     TID INT CONSTRAINT Training_TID_PK PRIMARY KEY,
     Appr_Date DATE CONSTRAINT Training_Appr_Date_NN NOT NULL,
     Grade CHAR(1) CONSTRAINT Training_Grade_CK CHECK (Grade IN ('A', 'B', 'C', 'D', 'F')),
-    Score DECIMAL(3, 2) CONSTRAINT Training_Score_CK CHECK (Score BETWEEN 0 AND 4),
+    Score DECIMAL(3, 2) CONSTRAINT Training_Score_CK CHECK (
+        Score BETWEEN 0
+        AND 4
+    ),
     Crs_ID VARCHAR(6),
     Section VARCHAR(1),
     Sem_Cmpltd VARCHAR(6),
@@ -93,7 +97,7 @@ CREATE TABLE Department (
     CONSTRAINT Department_Dept_Mngr_FK FOREIGN KEY (Dept_Mngr) REFERENCES EMPLOYEE(Emp_ID)
 );
 
-
-ALTER TABLE Employee 
-ADD CONSTRAINT Employee_Dept_ID_FK FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID);
-
+ALTER TABLE
+    Employee
+ADD
+    CONSTRAINT Employee_Dept_ID_FK FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID);
