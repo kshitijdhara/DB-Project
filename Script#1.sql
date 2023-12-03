@@ -1,102 +1,97 @@
+
+-- Drop existing tables (if any, to be dropped in this order)
+DROP TABLE Training;
+
 -- Drop interdependent constraints
 ALTER TABLE
-    Employee DROP CONSTRAINT DEPT_ID_FK;
+Employee DROP CONSTRAINT Employee_Dept_ID_FK;
 
--- Drop existing tables (if any)
+DROP TABLE Class;
+
+DROP TABLE Course;
+
+DROP TABLE Instructor;
+
 DROP TABLE Department;
 
 DROP TABLE Employee;
 
-DROP TABLE Course;
-
-DROP TABLE Class;
-
-DROP TABLE Instructor;
-
-DROP TABLE Training;
+-- Create Instructor table
+CREATE TABLE Instructor (
+    Instr_ID INT CONSTRAINT Instructor_Instr_ID_PK PRIMARY KEY,
+    Fname VARCHAR(255) CONSTRAINT Instructor_Fname_NN NOT NULL,
+    Lname VARCHAR(255) CONSTRAINT Instructor_Lname_NN NOT NULL,
+    Phone VARCHAR(15),
+    Specialty VARCHAR(250)
+);
 
 -- Create Course table
 CREATE TABLE Course (
     Crs_ID VARCHAR(6) CONSTRAINT Course_Crs_ID_PK PRIMARY KEY,
-    Crs_Title VARCHAR(255),
+    Crs_Title VARCHAR(255) CONSTRAINT Course_Crs_Title_NN NOT NULL,
     Crs_Type VARCHAR(50),
-    College_Name VARCHAR(50),
-    Tuition NUMBER(8, 2) CONSTRAINT Course_Tuition_CK CHECK (Tuition > 0)
+    College_Name VARCHAR(255),
+    Tuition DECIMAL(10, 2)
 );
 
--- Create Class table
-CREATE TABLE Class (
+-- Create Class Table
+ CREATE TABLE Class (
     Crs_ID VARCHAR(6),
-    Section CHAR(2),
-    Sem_Cmpltd VARCHAR(20),
+    Section VARCHAR(2),
+    Sem_Cmpltd VARCHAR(10),
     Day DATE,
-    Time TIMESTAMP,
-    Instr_ID VARCHAR(8)
-);
-
--- Create Instructor Table
-CREATE TABLE Instructor (
-    Instr_ID INT PRIMARY KEY,
-    Fname VARCHAR(25) NOT NULL,
-    Lname VARCHAR(25) NOT NULL,
-    Phone INT NOT NULL,
-    Speciality VARCHAR(100)
+    Time TIMESTAMP CONSTRAINT Class_Time_CK CHECK (Time BETWEEN '00:00:00' AND '23:59:59'),
+    Instr_ID INT,
+    CONSTRAINT Class_Crs_ID_Section_Sem_Compltd_PK PRIMARY KEY (Crs_ID, Section, Sem_Cmpltd),
+    CONSTRAINT Class_Crs_ID_FK FOREIGN KEY (Crs_ID) REFERENCES Course(Crs_ID),
+    CONSTRAINT Class_Instr_ID_FK FOREIGN KEY (Instr_ID) REFERENCES Instructor(Instr_ID)
 );
 
 -- Create Employee table
 CREATE TABLE Employee (
-    Emp_ID INT PRIMARY KEY,
-    Fname VARCHAR(25) NOT NULL,
-    Lname VARCHAR(25) NOT NULL,
-    Email VARCHAR(100) NOT NULL,
-    Position VARCHAR(25) NOT NULL,
-    DOB DATE NOT NULL,
-    Allowance NUMBER(8, 2) NOT NULL,
-    Street VARCHAR(25) NOT NULL,
-    City VARCHAR(25) NOT NULL,
-    State VARCHAR(25) NOT NULL,
-    Zip_Code VARCHAR(25) NOT NULL,
-    Dept_ID INT NOT NULL,
+    Emp_ID INT CONSTRAINT Employee_Emp_ID_PK PRIMARY KEY,
+    Fname VARCHAR(255) CONSTRAINT Employee_Fname_NN NOT NULL,
+    Lname VARCHAR(255) CONSTRAINT Employee_Lname_NN NOT NULL,
+    Email VARCHAR(255),
+    Position VARCHAR(50),
+    DOB DATE,
+    Hire_Date DATE,
+    Allowance DECIMAL(10, 2),
+    Street VARCHAR(255),
+    City VARCHAR(255),
+    State VARCHAR(2),
+    Zip_Code VARCHAR(10),
+    Dept_ID INT,
     Sup_ID INT,
-    -- FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID), -- Can add this as a constraint later
-    CONSTRAINT supervisor_fk FOREIGN KEY (Sup_ID) REFERENCES Employee(Emp_ID),
-    --ON DELETE to be added
-    CONSTRAINT chck_positive_emp_id CHECK (EMP_ID > 0),
-    CONSTRAINT chck_dob CHECK (MONTHS_BETWEEN(SYSDATE, DOB) / 12 >= 18) -- ask TA how to do this 
+    CONSTRAINT Employee_Emp_ID_FK FOREIGN KEY (Sup_ID) REFERENCES Employee(Emp_ID)
 );
 
 --
--- Create Department table
-CREATE TABLE Department (
-    Dept_ID INT PRIMARY KEY,
-    Dept_Name VARCHAR(255) NOT NULL,
-    Dept_Mngr INT,
-    Phone INT,
-    Training_Budget NUMBER(20, 2) NOT NULL,
-    CONSTRAINT manager_fk FOREIGN KEY (Dept_Mngr) REFERENCES Employee(Emp_ID)
-);
-
--- Create Training Table
+-- Create Training table
 CREATE TABLE Training (
-    TID INT PRIMARY KEY,
-    Appr_Date DATE,
-    Grade VARCHAR(2),
-    Score NUMBER(3, 2),
-    Crs_ID VARCHAR(6) NOT NULL,
-    Section CHAR(2) NOT NULL,
-    Sem_Cmpltd VARCHAR(20),
+    TID INT CONSTRAINT Training_TID_PK PRIMARY KEY,
+    Appr_Date DATE CONSTRAINT Training_Appr_Date_NN NOT NULL,
+    Grade CHAR(1) CONSTRAINT Training_Grade_CK CHECK (Grade IN ('A', 'B', 'C', 'D', 'F')),
+    Score DECIMAL(3, 2) CONSTRAINT Training_Score_CK CHECK (Score BETWEEN 0 AND 4),
+    Crs_ID VARCHAR(6),
+    Section VARCHAR(1),
+    Sem_Cmpltd VARCHAR(6),
     Emp_ID INT,
     ApprovedBy INT,
-    CONSTRAINT emp_id_fk FOREIGN KEY (Emp_ID) REFERENCES Employee(Emp_ID),
-    CONSTRAINT approved_by_fk FOREIGN Key (ApprovedBy) REFERENCES Employee(Emp_ID)
+    CONSTRAINT Training_Crs_ID_Section_Sem_Cmpltd_FK FOREIGN KEY (Crs_ID, Section, Sem_Cmpltd) REFERENCES CLASS(Crs_ID, Section, Sem_Cmpltd),
+    CONSTRAINT Training_Emp_ID_FK FOREIGN KEY (Emp_ID) REFERENCES EMPLOYEE(Emp_ID),
+    CONSTRAINT Training_ApprovedBy_FK FOREIGN KEY (ApprovedBy) REFERENCES EMPLOYEE(Emp_ID)
 );
 
-ALTER TABLE
-    Employee
-ADD
-    CONSTRAINT DEPT_ID_FK FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID);
+-- Create Department Table
+CREATE TABLE Department (
+    Dept_ID INT CONSTRAINT Department_Dept_ID_PK PRIMARY KEY,
+    Dept_Name VARCHAR(255) CONSTRAINT Department_Dept_Name_NN NOT NULL,
+    Phone VARCHAR(15),
+    Training_Budget DECIMAL(10, 2),
+    Dept_Mngr INT,
+    CONSTRAINT Department_Dept_Mngr_FK FOREIGN KEY (Dept_Mngr) REFERENCES EMPLOYEE(Emp_ID)
+);
 
-ALTER TABLE
-    Class
-ADD
-    CONSTRAINT CLASS_PK PRIMARY KEY (Crs_ID, Section, Sem_Cmpltd);
+ALTER TABLE Employee 
+ADD CONSTRAINT Employee_Dept_ID_FK FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID);
