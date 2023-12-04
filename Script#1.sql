@@ -1,3 +1,7 @@
+-- page formatting
+set linesize 1000
+set pagesize 1000
+
 -- Drop interdependent constraints
 ALTER TABLE
 Employee DROP CONSTRAINT Employee_Dept_ID_FK;
@@ -18,18 +22,18 @@ DROP TABLE Employee;
 -- Create Instructor table
 CREATE TABLE Instructor (
     Instr_ID INT CONSTRAINT Instructor_Instr_ID_PK PRIMARY KEY,
-    Fname VARCHAR(50) CONSTRAINT Instructor_Fname_NN NOT NULL,
-    Lname VARCHAR(50) CONSTRAINT Instructor_Lname_NN NOT NULL,
+    Fname VARCHAR(40) CONSTRAINT Instructor_Fname_NN NOT NULL,
+    Lname VARCHAR(40) CONSTRAINT Instructor_Lname_NN NOT NULL,
     Phone VARCHAR(15),
-    Specialty VARCHAR(80)
+    Specialty VARCHAR(50)
 );
 
 -- Create Course table
 CREATE TABLE Course (
     Crs_ID VARCHAR(10) CONSTRAINT Course_Crs_ID_PK PRIMARY KEY,
-    Crs_Title VARCHAR(120) CONSTRAINT Course_Crs_Title_NN NOT NULL,
-    Crs_Type VARCHAR(40),
-    College_Name VARCHAR(200),
+    Crs_Title VARCHAR(100) CONSTRAINT Course_Crs_Title_NN NOT NULL,
+    Crs_Type VARCHAR(20),
+    College_Name VARCHAR(100),
     Tuition DECIMAL(10, 2) CONSTRAINT Course_Tuition_CK CHECK (Tuition >= 0)
 );
 
@@ -38,8 +42,8 @@ CREATE TABLE Class (
     Crs_ID VARCHAR(10),
     Section VARCHAR(2),
     Sem_Cmpltd VARCHAR(15),
-    Day DATE,
-    Time TIMESTAMP CONSTRAINT Class_Time_CK CHECK (
+    Day VARCHAR(6),
+    Time VARCHAR (10) CONSTRAINT Class_Time_CK CHECK (
         Time BETWEEN '00:00:00'
         AND '23:59:59'
     ),
@@ -52,9 +56,9 @@ CREATE TABLE Class (
 -- Create Employee table
 CREATE TABLE Employee (
     Emp_ID INT CONSTRAINT Employee_Emp_ID_PK PRIMARY KEY,
-    Fname VARCHAR(50) CONSTRAINT Employee_Fname_NN NOT NULL,
-    Lname VARCHAR(50) CONSTRAINT Employee_Lname_NN NOT NULL,
-    Email VARCHAR(50),
+    Fname VARCHAR(40) CONSTRAINT Employee_Fname_NN NOT NULL,
+    Lname VARCHAR(40) CONSTRAINT Employee_Lname_NN NOT NULL,
+    Email VARCHAR(28),
     Position VARCHAR(50),
     DOB DATE,
     Hire_Date DATE,
@@ -79,7 +83,7 @@ CREATE TABLE Training (
     ),
     Crs_ID VARCHAR(10),
     Section VARCHAR(2),
-    Sem_Cmpltd VARCHAR(6),
+    Sem_Cmpltd VARCHAR(20),
     Emp_ID INT,
     ApprovedBy INT,
     CONSTRAINT Training_Crs_ID_Section_Sem_Cmpltd_FK FOREIGN KEY (Crs_ID, Section, Sem_Cmpltd) REFERENCES CLASS(Crs_ID, Section, Sem_Cmpltd),
