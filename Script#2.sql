@@ -2,7 +2,6 @@
 ALTER TABLE EMPLOYEE
 DISABLE CONSTRAINT Employee_Dept_ID_FK;
 
-
 -- Insert data into Instructor table
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
