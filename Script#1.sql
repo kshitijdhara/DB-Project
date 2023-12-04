@@ -17,7 +17,7 @@ DROP TABLE Employee;
 
 -- Create Instructor table
 CREATE TABLE Instructor (
-    Instr_ID VARCHAR(10) CONSTRAINT Instructor_Instr_ID_PK PRIMARY KEY,
+    Instr_ID INT CONSTRAINT Instructor_Instr_ID_PK PRIMARY KEY,
     Fname VARCHAR(255) CONSTRAINT Instructor_Fname_NN NOT NULL,
     Lname VARCHAR(255) CONSTRAINT Instructor_Lname_NN NOT NULL,
     Phone VARCHAR(15),
@@ -26,7 +26,7 @@ CREATE TABLE Instructor (
 
 -- Create Course table
 CREATE TABLE Course (
-    Crs_ID VARCHAR(7) CONSTRAINT Course_Crs_ID_PK PRIMARY KEY,
+    Crs_ID VARCHAR(10) CONSTRAINT Course_Crs_ID_PK PRIMARY KEY,
     Crs_Title VARCHAR(255) CONSTRAINT Course_Crs_Title_NN NOT NULL,
     Crs_Type VARCHAR(50),
     College_Name VARCHAR(255),
