@@ -1,43 +1,43 @@
 -- Insert data into Instructor table
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('CS001', 'Michael', 'Johnson', 4155551234, 'Computer Science');
+    (1001, 'Michael', 'Johnson', 4155551234, 'Computer Science');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('ENG002', 'Laura', 'Anderson', 4085555678, 'English Literature');
+    (2001, 'Laura', 'Anderson', 4085555678, 'English Literature');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('MTH003', 'Christopher', 'Martin', 5105558765, 'Mathematics');
+    (3001, 'Christopher', 'Martin', 5105558765, 'Mathematics');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('HST004', 'Elena', 'Rodriguez', 9255554321, 'History');
+    (4001, 'Elena', 'Rodriguez', 9255554321, 'History');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('PHY005', 'Robert', 'Garcia', 6505559876, 'Physics');
+    (5001, 'Robert', 'Garcia', 6505559876, 'Physics');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('CHM006', 'Megan', 'Baker', 4155556543, 'Chemistry');
+    (6001, 'Megan', 'Baker', 4155556543, 'Chemistry');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('PSY007', 'Jonathan', 'Clark', 4085557890, 'Psychology');
+    (7001, 'Jonathan', 'Clark', 4085557890, 'Psychology');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('ART008', 'Amelia', 'Evans', 5105558765, 'Art History');
+    (8001, 'Amelia', 'Evans', 5105558765, 'Art History');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('SOC009', 'Gregory', 'Wong', 9255552345, 'Sociology');
+    (9001, 'Gregory', 'Wong', 9255552345, 'Sociology');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    ('BUS010', 'Sophie', 'Fisher', 6505557890, 'Business Management');
+    (10001, 'Sophie', 'Fisher', 6505557890, 'Business Management');
 
 
 -- Insert data into Course table
