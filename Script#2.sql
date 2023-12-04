@@ -208,7 +208,7 @@ VALUES
 -- Insert data into Department table
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (1, 'IT Department', 101, 1234567890, 50000.00);
+  (1, 'IT Department', 101, 5551234567, 50000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
@@ -216,35 +216,35 @@ VALUES
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (3, 'Finance Department', 103, 5555555555, 45000.00);
+  (3, 'Finance Department', 103, 1234567890, 45000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (4, 'Marketing Department', 104, 3333333333, 60000.00);
+  (4, 'Marketing Department', 104, 8885551234, 60000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (5, 'Sales Department', 105, 4444444444, 55000.00);
+  (5, 'Sales Department', 105, 5557890123, 55000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (6, 'Research Department', 106, 6666666666, 48000.00);
+  (6, 'Research Department', 106, 3216540987, 48000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (7, 'Customer Support', 107, 7777777777, 40000.00);
+  (7, 'Customer Support', 107, 5552345678, 40000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (8, 'Production Department', 108, 8888888888, 70000.00);
+  (8, 'Production Department', 108, 9998887777, 70000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (9, 'Quality Assurance', 109, 9999999999, 52000.00);
+  (9, 'Quality Assurance', 109, 7775554444, 52000.00);
 
 INSERT INTO Department (Dept_ID, Dept_Name, Dept_Mngr, Phone, Training_Budget)
 VALUES
-  (10, 'Administration Department', 110, 1111111111, 38000.00);
+  (10, 'Administration Department', 110, 4567890123, 38000.00);
 
 -- Insert data into Training table
 INSERT INTO Training (
