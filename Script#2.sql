@@ -305,7 +305,7 @@ INSERT INTO Training (
     TID, Appr_Date, Grade, Score, Crs_ID, Section, Sem_Cmpltd, Emp_ID, ApprovedBy
 )
 VALUES
-    (10, TO_DATE('2023-03-15', 'YYYY-MM-DD'), 'B+', 3.33, 'BUS401', 'J', 'Spring 2023', 110, 101);
+    (10, TO_DATE('2023-07-15', 'YYYY-MM-DD'), 'B+', 3.33, 'BUS401', 'J', 'Spring 2023', 110, 101);
 
 --Enabling back the previously disabled interconnected constraint
 ALTER TABLE EMPLOYEE
