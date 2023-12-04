@@ -1,3 +1,4 @@
+
 -- DISABLING Interdependent Constraints
 ALTER TABLE EMPLOYEE
 DISABLE CONSTRAINT Employee_Dept_ID_FK;
@@ -9,7 +10,7 @@ VALUES
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    (2001, 'Laura', 'Anderson', 4085555678, 'English Literature');
+    (2001, 'Laura', 'Anderson', 4085555678, 'Data Engineering');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
@@ -17,11 +18,11 @@ VALUES
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    (4001, 'Elena', 'Rodriguez', 9255554321, 'History');
+    (4001, 'Elena', 'Rodriguez', 9255554321, 'Analytics');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
-    (5001, 'Robert', 'Garcia', 6505559876, 'Physics');
+    (5001, 'Robert', 'Garcia', 6505559876, 'Analytics');
 
 INSERT INTO Instructor (Instr_ID, Fname, Lname, Phone, Specialty)
 VALUES
@@ -51,7 +52,7 @@ VALUES
 
 INSERT INTO Course (Crs_ID, Crs_Title, Crs_Type, College_Name, Tuition)
 VALUES
-    ('ENG201', 'Advanced English Composition', 'English', 'College of Fine Arts', 1200.00);
+    ('DBM201', 'Database Management', 'Information Systems', 'Heinz College', 1200.00);
 
 INSERT INTO Course (Crs_ID, Crs_Title, Crs_Type, College_Name, Tuition)
 VALUES
@@ -89,8 +90,6 @@ VALUES
     ('BUS401', 'Strategic Management', 'Business', 'Heinz College', 1700.00);
 
 
-
-
 -- Disabling the timestamp constraint for inserting data in TIMESTAMP format
 --ALTER TABLE Class
 --DISABLE CONSTRAINT Class_Time_CK;
@@ -102,7 +101,7 @@ VALUES
 
 INSERT INTO Class (Crs_ID, Section, Sem_Cmpltd, Day, Time, Instr_ID)
 VALUES
-    ('ENG201', 'B', 'Spring 2023', 'T,TR', '14:00:00', 2001);
+    ('DBM201', 'B', 'Spring 2023', 'T,TR', '14:00:00', 2001);
 
 INSERT INTO Class (Crs_ID, Section, Sem_Cmpltd, Day, Time, Instr_ID)
 VALUES
@@ -110,11 +109,11 @@ VALUES
 
 INSERT INTO Class (Crs_ID, Section, Sem_Cmpltd, Day, Time, Instr_ID)
 VALUES
-    ('HIST101', 'D', 'Spring 2023', 'M,W,F', '09:30:00', '4001');
+    ('DBM201', 'D', 'Spring 2023', 'M,W,F', '09:30:00', 4001);
 
 INSERT INTO Class (Crs_ID, Section, Sem_Cmpltd, Day, Time, Instr_ID)
 VALUES
-    ('PHYS202', 'E', 'Fall 2022', 'T,TR,F', '13:45:00', 5001);
+    ('DBM201', 'E', 'Fall 2022', 'T,TR,F', '13:45:00', 5001);
 
 INSERT INTO Class (Crs_ID, Section, Sem_Cmpltd, Day, Time, Instr_ID)
 VALUES
@@ -140,69 +139,59 @@ VALUES
 -- Insert data into Employee table
 --row 1
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (101, 'John', 'Doe', 'john.doe@andrew.cmu.edu', 'Manager', TO_DATE('1990-01-15', 'YYYY-MM-DD'), 5000.00, '123 Main St', 'Pittsburgh', 'Pennsylvania', '15217', 1, NULL);
+    (101, 'John', 'Doe', 'john.doe@andrew.cmu.edu', 'Manager', TO_DATE('1990-01-15', 'YYYY-MM-DD'), TO_DATE('2017-04-20', 'YYYY-MM-DD'), 5000.00, '123 Main St', 'Pittsburgh', 'Pennsylvania', '15217', 1, NULL);
 
 --row 2
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (102, 'Jane', 'Smith', 'jane.smith@andrew.cmu.edu', 'Developer', TO_DATE('1985-05-20', 'YYYY-MM-DD'), 4500.00, '456 Oak St', 'Pittsburgh', 'Pennsylvania', '67890', 1, 101);
+    (102, 'Jane', 'Smith', 'jane.smith@andrew.cmu.edu', 'Developer', TO_DATE('1985-05-20', 'YYYY-MM-DD'), TO_DATE('2015-08-23', 'YYYY-MM-DD'), 4500.00, '456 Oak St', 'Pittsburgh', 'Pennsylvania', '67890', 1, 101);
 
 --row 3
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+   Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (103, 'Mike', 'Johnson', 'mike.johnson@andrew.cmu.edu', 'HR Specialist', TO_DATE('1988-08-10', 'YYYY-MM-DD'), 4800.00, '789 Pine St', 'Pittsburgh', 'Pennsylvania', '54321', 2, 101);
+    (103, 'Mike', 'Johnson', 'mike.johnson@andrew.cmu.edu', 'HR Specialist', TO_DATE('1988-08-10', 'YYYY-MM-DD'), TO_DATE('2018-05-11', 'YYYY-MM-DD'), 4800.00, '789 Pine St', 'Pittsburgh', 'Pennsylvania', '54321', 2, 101);
 
 --row 4
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+     Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (104, 'Emily', 'Brown', 'emily.brown@andrew.cmu.edu', 'Sales Representative', TO_DATE('1992-03-25', 'YYYY-MM-DD'), 4300.00, '101 Cedar St', 'Pittsburgh', 'Pennsylvania', '98765', 5, 103);
+    (104, 'Emily', 'Brown', 'emily.brown@andrew.cmu.edu', 'Sales Representative', TO_DATE('1992-03-25', 'YYYY-MM-DD'), TO_DATE('2021-07-18', 'YYYY-MM-DD'), 4300.00, '101 Cedar St', 'Pittsburgh', 'Pennsylvania', '98765', 5, 103);
 
 --row 5
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (105, 'Alex', 'Miller', 'alex.miller@andrew.cmu.edu', 'Customer Support', TO_DATE('1993-12-05', 'YYYY-MM-DD'), 4200.00, '202 Elm St', 'Pittsburgh', 'Pennsylvania', '45678', 7, 103);
+    (105, 'Alex', 'Miller', 'alex.miller@andrew.cmu.edu', 'Customer Support', TO_DATE('1993-12-05', 'YYYY-MM-DD'), TO_DATE('2018-03-16', 'YYYY-MM-DD'),4200.00, '202 Elm St', 'Pittsburgh', 'Pennsylvania', '45678', 7, 103);
 
 --row 6
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (106, 'Chris', 'Wong', 'chris.wong@andrew.cmu.edu', 'Research Analyst', TO_DATE('1991-06-15', 'YYYY-MM-DD'), 4900.00, '303 Maple St', 'Pittsburgh', 'Pennsylvania', '23456', 6, 106);
+    (106, 'Chris', 'Wong', 'chris.wong@andrew.cmu.edu', 'Research Analyst', TO_DATE('1991-06-15', 'YYYY-MM-DD'), TO_DATE('2016-09-14', 'YYYY-MM-DD'), 4900.00, '303 Maple St', 'Pittsburgh', 'Pennsylvania', '23456', 6, 106);
 --row 7
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (107, 'Sophia', 'Clark', 'sophia.clark@andrew.cmu.edu', 'Quality Assurance', TO_DATE('1989-09-30', 'YYYY-MM-DD'), 4700.00, '404 Birch St', 'Pittsburgh', 'Pennsylvania', '87654', 9, 105);
+    (107, 'Sophia', 'Clark', 'sophia.clark@andrew.cmu.edu', 'Quality Assurance', TO_DATE('1989-09-30', 'YYYY-MM-DD'), TO_DATE('2020-05-19', 'YYYY-MM-DD'), 4700.00, '404 Birch St', 'Pittsburgh', 'Pennsylvania', '87654', 9, 105);
 --row 8
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (108, 'David', 'White', 'david.white@andrew.cmu.edu', 'Production Manager', TO_DATE('1987-04-12', 'YYYY-MM-DD'), 5200.00, '505 Oak St', 'Pittsburgh', 'Pennsylvania', '54321', 8, 108);
+    (108, 'David', 'White', 'david.white@andrew.cmu.edu', 'Production Manager', TO_DATE('1987-04-12', 'YYYY-MM-DD'), TO_DATE('2015-02-05', 'YYYY-MM-DD'), 5200.00, '505 Oak St', 'Pittsburgh', 'Pennsylvania', '54321', 8, 108);
 --row 9
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (109, 'Olivia', 'Taylor', 'olivia.taylor@andrew.cmu.edu', 'Administrator', TO_DATE('1995-02-08', 'YYYY-MM-DD'), 4000.00, '606 Pine St', 'Pittsburgh', 'Pennsylvania', '78901', 10, 108);
+    (109, 'Olivia', 'Taylor', 'olivia.taylor@andrew.cmu.edu', 'Administrator', TO_DATE('1995-02-08', 'YYYY-MM-DD'), TO_DATE('2019-07-28', 'YYYY-MM-DD'), 4000.00, '606 Pine St', 'Pittsburgh', 'Pennsylvania', '78901', 10, 108);
 --row 10
 INSERT INTO Employee (
-    Emp_ID, Fname, Lname, Email, Position, DOB, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID
-)
+    Emp_ID, Fname, Lname, Email, Position, DOB, Hire_Date, Allowance, Street, City, State, Zip_Code, Dept_ID, Sup_ID)
 VALUES
-    (110, 'Daniel', 'Lee', 'daniel.lee@andrew.cmu.edu', 'IT Specialist', TO_DATE('1994-11-18', 'YYYY-MM-DD'), 4800.00, '707 Cedar St', 'Pittsburgh', 'Pennsylvania', '12345', 1, 101);
+    (110, 'Daniel', 'Lee', 'daniel.lee@andrew.cmu.edu', 'IT Specialist', TO_DATE('1994-11-18', 'YYYY-MM-DD'), TO_DATE('2022-04-08', 'YYYY-MM-DD'), 4800.00, '707 Cedar St', 'Pittsburgh', 'Pennsylvania', '12345', 1, 101);
 
 
 -- Insert data into Department table
@@ -257,7 +246,7 @@ INSERT INTO Training (
     TID, Appr_Date, Grade, Score, Crs_ID, Section, Sem_Cmpltd, Emp_ID, ApprovedBy
 )
 VALUES
-    (2, TO_DATE('2023-04-05', 'YYYY-MM-DD'), 'B+', 3.33, 'ENG201', 'B', 'Spring 2023', 102, 101);
+    (2, TO_DATE('2023-04-05', 'YYYY-MM-DD'), 'B+', 3.33, 'DBM201', 'B', 'Spring 2023', 102, 101);
 
 INSERT INTO Training (
     TID, Appr_Date, Grade, Score, Crs_ID, Section, Sem_Cmpltd, Emp_ID, ApprovedBy
@@ -269,7 +258,7 @@ INSERT INTO Training (
     TID, Appr_Date, Grade, Score, Crs_ID, Section, Sem_Cmpltd, Emp_ID, ApprovedBy
 )
 VALUES
-    (4, TO_DATE('2023-05-18', 'YYYY-MM-DD'), 'B', 3, 'HIST101', 'D', 'Spring 2023', 104, 101);
+    (4, TO_DATE('2023-05-18', 'YYYY-MM-DD'), 'B', 3, 'DBM201', 'D', 'Spring 2023', 104, 101);
 
 INSERT INTO Training (
     TID, Appr_Date, Grade, Score, Crs_ID, Section, Sem_Cmpltd, Emp_ID, ApprovedBy
